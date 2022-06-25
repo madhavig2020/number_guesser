@@ -1,0 +1,40 @@
+import random
+
+#import random module
+#Ask user how large of a number they want to generate
+
+top_Range = input("Type a number that you want to guess with in : ")
+
+if top_Range.isdigit():
+    top_Range = int(top_Range)
+
+    if top_Range <= 0:
+        print(" Please type a number larger than 0")
+else:
+    print("Please type a number next time")
+    quit()
+
+random_number = random.randrange(top_Range)
+#print(random_number)
+
+#keep asking user to type in a guess until they guess correct
+guesses =0
+while True:
+    guesses += 1
+    user_guess = input ("Make a guess: ")
+    if user_guess.isdigit():
+        user_guess = int(user_guess)
+    else:
+        print("Please type a number next time")
+        continue
+    if user_guess == random_number:
+        print("You got it!")
+        break
+    else:
+ #       print("You got it wrong")
+        if user_guess > random_number:
+            print("You were above the number!")
+        else:
+            print("You were below the number!")
+
+print(" You got it in" , guesses , "guesses")
